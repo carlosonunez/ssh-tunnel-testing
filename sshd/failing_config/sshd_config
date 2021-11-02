@@ -1,0 +1,12 @@
+AllowUsers                      %ALLOWED_USER%
+AllowAgentForwarding            yes
+AllowTcpForwarding              yes
+AuthenticationMethods           publickey,keyboard-interactive:pam
+AuthorizedKeysFile              .ssh/authorized_keys
+ChallengeResponseAuthentication yes
+PasswordAuthentication          no
+PermitRootLogin                 no
+PrintMotd                       yes
+PubkeyAuthentication            yes
+UseDNS                          yes
+UsePAM                          yes

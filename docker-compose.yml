@@ -29,6 +29,18 @@ services:
     ports:
       - '3333:22'
 
+  # This is the config that is failing
+  # ssh -v root@localhost -p 9999 -i ./keys/id_openssh_passphraseless_rsa
+  ssh_tunnel_failing_config:
+    container_name: ssh_tunnel_failing_ga
+    build: .
+    volumes:
+      - ./sshd/failing_config/sshd_config:/etc/ssh/sshd_config
+      - ./sshd/failing_config/sshd:/etc/pam.d/sshd
+      - ./keys/public/id_openssh_passphraseless_rsa.pub:/root/.ssh/authorized_keys
+    ports:
+      - '9999:22'
+
   # ssh -v root@localhost -p 4444 -o PreferredAuthentications=keyboard-interactive
   ssh_tunnel_pam_yubikey:
     container_name: ssh_tunnel_pam_yubikey

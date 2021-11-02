@@ -1,0 +1,2 @@
+auth required pam_google_authenticator.so echo_verification_code
+auth required pam_permit.so
